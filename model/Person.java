@@ -1,4 +1,4 @@
-package com.sant.bankManagement;
+package com.sant.bankManagement.model;
 
 public abstract class Person {
     private String name;

@@ -1,4 +1,7 @@
-package com.sant.bankManagement;
+package com.sant.bankManagement.ui;
+
+import com.sant.bankManagement.model.Account;
+import com.sant.bankManagement.model.Customer;
 
 public class BankDisplay implements UIBankSystem{
     @Override
@@ -16,12 +19,12 @@ public class BankDisplay implements UIBankSystem{
         System.out.println(customer.getAge());
         System.out.println(customer.getCustomerId());
         for(Account account : customer.getAccount()){
-            System.out.println(account.getAccNum());
+            System.out.println(account.getAccNum(account.getAccId()));
             System.out.println(account.getAccType());
-            System.out.println(account.getBalance());
-            if(account.getTransactionList() != null){
+            System.out.println(account.getBalance(account.getAccNum(account.getAccId())));
+            if(account.getTransactionList(account.getAccNum(account.getAccId())) != null){
 //                throw new BankExceptions("No Transaction");
-                System.out.println(account.getTransactionList());
+                System.out.println(account.getTransactionList(account.getAccNum(account.getAccId())));
             }
         }
         System.out.println();
