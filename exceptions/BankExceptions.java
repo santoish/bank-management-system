@@ -1,4 +1,4 @@
-package com.sant.bankManagement;
+package com.sant.bankManagement.exceptions;
 
 public class BankExceptions extends RuntimeException {
     public BankExceptions(String message) {
@@ -24,14 +24,12 @@ public class BankExceptions extends RuntimeException {
     }
 
     public static class InvalidCustomerException extends BankExceptions{
-
         public InvalidCustomerException(String message) {
             super(message);
         }
     }
 
     public static class DuplicateAccountException extends BankExceptions{
-
         public DuplicateAccountException(String message) {
             super(message);
         }
@@ -39,8 +37,8 @@ public class BankExceptions extends RuntimeException {
 
     public static class ValidationFailed extends BankExceptions{
 
-        public ValidationFailed() {
-            super("The Validation of Fields Failed\nSo Try Again");
+        public ValidationFailed(String message) {
+            super(message);
         }
     }
 

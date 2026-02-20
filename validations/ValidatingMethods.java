@@ -1,11 +1,19 @@
-package com.sant.bankManagement;
+package com.sant.bankManagement.validations;
+
+import com.sant.bankManagement.dao.AccountDAOImplementation;
+import com.sant.bankManagement.dao.CustomerDAOImplementation;
+import com.sant.bankManagement.model.Account;
+import com.sant.bankManagement.model.Customer;
 
 public class ValidatingMethods implements ValidationRules{
+
+    private CustomerDAOImplementation  customerDAO = new CustomerDAOImplementation();
+    private AccountDAOImplementation accountDAO = new AccountDAOImplementation();
+
     @Override
     public boolean validDepositAmount(double amount) {
         return amount >= 500 && amount <= 10000;
     }
-
 
     @Override
     public boolean validName(String name) {
@@ -23,13 +31,8 @@ public class ValidatingMethods implements ValidationRules{
     }
 
     @Override
-    public boolean validAccNum(int accNum, Customer customer) {
-        for(Account account : customer.getAccount()){
-            if(account.getAccNum() == accNum){
-                return true;
-            }
-        }
-        return false;
+    public boolean validAccNum(int accNum) {
+        return accountDAO.existAccount(accNum);
     }
 
     @Override

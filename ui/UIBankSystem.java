@@ -1,4 +1,6 @@
-package com.sant.bankManagement;
+package com.sant.bankManagement.ui;
+
+import com.sant.bankManagement.model.Customer;
 
 public interface UIBankSystem {
     void displayMessage(String message);
